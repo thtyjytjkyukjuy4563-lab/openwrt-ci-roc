@@ -9,7 +9,7 @@ on:
 env:
   REPO_URL: https://github.com/thtyjytjkyukjuy4563-lab/openwrt-6.x.git
   REPO_BRANCH: k6.12-nss-inseego-fg2000
-  CONFIG_FILE: configs/fg2000.config
+  CONFIG_FILE: configs/new-fg2000.config
   GENERAL_CONFIG_FILE: configs/General.config
   DIY_SCRIPT: scripts/Roc-script.sh
   CLASH_KERNEL: amd64
