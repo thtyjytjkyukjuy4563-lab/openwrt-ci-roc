@@ -84,18 +84,3 @@ echo "baidu.com"  > package/luci-app-passwall/luci-app-passwall/root/usr/share/p
 
 ./scripts/feeds update -a
 ./scripts/feeds install -a
-
-echo ">>> Injecting WiFi Configuration for IPQ807x..."
-
-# 1. 强制启用驱动配置 (防止 .config 被覆盖或遗漏)
-echo "CONFIG_PACKAGE_kmod-ath11k=y" >> $OPENWRT_PATH/.config
-echo "CONFIG_PACKAGE_kmod-ath11k-ahb=y" >> $OPENWRT_PATH/.config
-echo "CONFIG_PACKAGE_wpad-openssl=y" >> $OPENWRT_PATH/.config
-echo "CONFIG_PACKAGE_iwinfo=y" >> $OPENWRT_PATH/.config
-echo "CONFIG_PACKAGE_luci-app-wireless=y" >> $OPENWRT_PATH/.config
-
-# 2. 重新计算依赖，确保固件包被拉取
-cd $OPENWRT_PATH
-make defconfig
-
-echo ">>> WiFi Configuration Injected Successfully."
